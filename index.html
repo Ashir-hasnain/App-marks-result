@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container">
+
+        <h1 class="display-4 mt-3">Student Marks</h1>
+        <table class="table table-striped">
+            <tr>
+                <th>Obtained Marks</th>
+                <th>Total Marks</th>
+                <th>Percentage</th>
+                <th>Rank</th>
+                <th>Remarks</th>
+            </tr>
+            <tr>
+                <td><span class="obt"></span></td>
+                <td><span class="tmarks"></span></td>
+                <td><span class="per"></span></td>
+                <td><span class="rank"></span></td>
+                <td><span class="status"></span></td>
+            </tr>
+        </table>
+        <h1 class="display-5">You are <b class="mat"></b> in Maths</h1>
+        <h1 class="display-5">You are <b class="en"></b> in English</h1>
+        <h1 class="display-5">You are <b class="ur"></b> in Urdu</h1>
+        <h1 class="display-5">You are <b class="sc"></b> in Science</h1>
+        <h1 class="display-5">You are <b class="com"></b> in Computer</h1>
+    </div>
+</body>
+<script>
+
+    function result() {
+
+        // getting value 
+        let foru = document.querySelector(".foru")
+        let maths = parseFloat(document.querySelector('.maths').value);
+        let eng = parseFloat(document.querySelector('.english').value);
+        let urdu = parseFloat(document.querySelector('.urdu').value);
+        let sci = parseFloat(document.querySelector('.science').value);
+        let computer = parseFloat(document.querySelector('.computer').value);
+
+        // for Collecting Data
+        let obt = document.querySelector('.obt');
+        let tmarks = document.querySelector('.tmarks');
+        let per = document.querySelector('.per');
+        let rank = document.querySelector('.rank');
+        let status = document.querySelector('.status');
+
+        // for status 
+        let mat = document.querySelector('.mat');
+        let en = document.querySelector('.en');
+        let ur = document.querySelector('.ur');
+        let sc = document.querySelector('.sc');
+        let com = document.querySelector('.com');
+
+        let totalmarks = 500;
+
+        let obtmarks = maths + eng + urdu + sci + computer;
+
+        let percentage = obtmarks / totalmarks * 100;
+
+        if (percentage >= 80) {
+            rank.innerHTML = "A1";
+        } else if (percentage >= 70) {
+            rank.innerHTML = "A";
+        } else if (percentage >= 60) {
+            rank.innerHTML = "B";
+        } else if (percentage >= 50) {
+            rank.innerHTML = "C";
+        } else if (percentage >= 40) {
+            rank.innerHTML = "D";
+        } else if (percentage >= 33) {
+            rank.innerHTML = "E";
+        } else if (percentage >= 0) {
+            rank.innerHTML = "Fail";
+        }
+
+        if (maths > 33 && eng > 33 && urdu > 33 && sci > 33 && computer > 33) {
+            status.innerHTML = "pass"
+        } else {
+            status.innerHTML = "fail"
+        }
+
+        (maths > 33) ? mat.innerHTML = "PASS" : mat.innerHTML = "FAIL";
+        (eng > 33) ? en.innerHTML = "PASS" : en.innerHTML = "FAIL";
+        (urdu > 33) ? ur.innerHTML = "PASS" : ur.innerHTML = "FAIL";
+        (sci > 33) ? sc.innerHTML = "PASS" : sc.innerHTML = "FAIL";
+        (computer > 33) ? com.innerHTML = "PASS" : com.innerHTML = "FAIL";
+
+
+
+
+        tmarks.innerHTML = totalmarks;
+        obt.innerHTML = obtmarks;
+        per.innerHTML = percentage;
+
+
+        foru.style.display = "none"
+    }
+// my Code line
+
+
+
+</script>
+
+</html>
